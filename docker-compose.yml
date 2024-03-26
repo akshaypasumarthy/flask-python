@@ -1,0 +1,9 @@
+version: '3'
+services:
+  flask_framework:
+    build: 
+      context: .
+    ports:
+      - 80:5000
+    volumes:
+      - ./flask_framework:/flask_framework

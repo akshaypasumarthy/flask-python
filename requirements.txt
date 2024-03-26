@@ -1,0 +1,9 @@
+pip
+Flask
+Flask-SQLAlchemy
+Flask-Bcrypt
+Flask-Login
+Flask-JWT-Extended
+Flask-WTF
+Flask-RESTful
+mysql

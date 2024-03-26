@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %} Employee-Login {% endblock %}
+{% block content %}
+
+<body>
+    <h1 class="text-center" style="padding:10px">Hey Employee! Login To Your Account.</h1>
+    <div class="container" style= "margin-bottom:4.6%">
+        <div class="center-container">
+        <form method="POST" class="form-register" style="color: black; background-color: #f9f9f9; padding: 20px; border-radius: 10px; width:60%;">
+            {{ form.hidden_tag() }}
+            <div class="col-md-12" style="padding: 10px;">
+                {{form.email_address.label(class="left-label")}}
+                {{ form.email_address(class="form-control", placeholder="E-mail Address" )}}
+            </div>
+            <div class="col-md-12" style="padding: 10px;">
+                {{form.password.label(class="left-label")}}
+                {{ form.password(class="form-control", placeholder="Password")}}
+            </div>
+            <div class = "row">
+                <div >
+                    <h6 style="margin-left:14px">Do not have an Account ? <a href = "{{ url_for('employee_register') }}" style="text-decoration:none;padding:6px">SignUp</a>
+                    </h6>                    
+                </div>
+            </div>
+            <div class="text-center">
+                {{ form.submit(class="btn btn-lg btn-block btn-primary",style="width:100%;")}}
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<style>
+    .left-label {
+        text-align: left;
+    }
+    .center-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+
+{% endblock %}

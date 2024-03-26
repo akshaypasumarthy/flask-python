@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %} Employee-Register {% endblock %}
+{% block content %}
+<body>
+    <h1 class="text-center" style="padding:10px" >Hey Admin! Create Your Account.</h1>
+    <div class="container">
+        <div class="center-container">
+            <form method="POST" class="form-register" style="color: black; background-color: #f9f9f9; padding: 20px; border-radius: 10px; width:60%;">
+                {{ form.hidden_tag() }}
+                <div class="row">
+                    <div class="col-md-6" style="padding: 10px;">
+                        {{form.first_name.label(class="left-label")}}
+                        {{ form.first_name(class="form-control", placeholder="First Name" )}}
+                    </div>
+                    <div class="col-md-6" style="padding: 10px;">
+                        {{form.last_name.label(class="left-label")}}
+                        {{ form.last_name(class="form-control", placeholder="Last Name")}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6" style="padding: 10px;">
+                        {{form.email_address.label(class="left-label")}}
+                        {{ form.email_address(class="form-control", placeholder="E-mail Address")}}
+                    </div>
+                    <div class="col-md-6" style="padding: 10px;">
+                        {{form.address.label(class="left-label")}}
+                        {{ form.address(class="form-control", placeholder="Address")}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6" style="padding: 10px;">
+                        {{form.DOB.label(class="left-label")}}
+                        {{ form.DOB(class="form-control", placeholder="Date Of Birth")}}
+                    </div>
+                    <div class="col-md-6" style="padding: 10px;">
+                        {{form.phone_number.label(class="left-label")}}
+                        {{ form.phone_number(class="form-control", placeholder="Phone Number")}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6" style="padding: 10px;">
+                        {{form.password.label(class="left-label")}}
+                        {{ form.password(class="form-control", placeholder="Password")}}
+                    </div>
+                    <div class="col-md-6" style="padding: 10px;">
+                        {{form.password_confirm.label(class="left-label")}}
+                        {{ form.password_confirm(class="form-control", placeholder="Confirm Password")}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div >
+                        <h6>Already have an Account? <a href="{{ url_for('admin_login') }}" style="text-decoration:none;padding:6px">SignIn</a>
+                        </h6>
+                    </div>
+                </div>
+                <div class="text-center">
+                {{ form.submit(class="btn btn-lg btn-block btn-primary",style="width:100%;")}}
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<style>
+    .left-label {
+        text-align: left;
+    }
+    .center-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+{% endblock %}

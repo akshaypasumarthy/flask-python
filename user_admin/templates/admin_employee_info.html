@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title %} Admin Employee Info {% endblock %}
+
+{% block content %}
+
+
+<div class="centered">
+    <div class="card">
+        <div class="card-header" style="display:flex">
+            <a href="{{url_for('admin_page')}}" class="btn btn-secondary" style="display: inline-block;"><i class="bi bi-arrow-left-circle-fill"></i></a> 
+            <h2>The details of the employee</h2>
+        </div>
+        <div class="card-body">
+            <div class="details">
+                <p><strong>First Name:</strong> {{ employee.first_name }}</p>
+                <p><strong>Last Name:</strong> {{ employee.last_name }}</p>
+                <p><strong>Date of Birth:</strong> <span id="reversedDOB">{{ employee.DOB }}</span></p>
+                <p><strong>Email:</strong> {{ employee.email_address }}</p>
+                <p><strong>Phone Number:</strong> {{ employee.phone_number }}</p>
+                <p><strong>Address:</strong> {{ employee.address }}</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <a href="{{url_for('admin_employee_edit',id=employee.id)}}" style="text-decoration:none; color: inherit;"><i class="bi bi-pencil-square"></i></a>
+            <a href="{{url_for('admin_employee_delete',id=employee.id)}}" style="text-decoration:none; color: inherit;"><i class="bi bi-trash-fill"></i></a> 
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var dobElement = document.getElementById('reversedDOB');
+        var dobValue = dobElement.innerText;
+        var reversedDOB = dobValue.split('-').reverse().join('-');
+        dobElement.innerText = reversedDOB;
+    });
+</script>
+
+<style>
+.btn 
+{
+    padding:10px;
+    margin-right:10px
+}
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh; 
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    max-width: 800px;
+    padding: 20px;
+    margin: 20px; 
+}
+
+.details p {
+    margin: 10px 0; 
+    font-size: 16px;
+}
+
+.details strong {
+    color: #333;
+    font-weight: bold;
+    margin-right: 5px;
+}
+.card-footer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+</style>
+
+{% endblock %}
+
